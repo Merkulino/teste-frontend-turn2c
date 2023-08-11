@@ -5,24 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-
-import { HomeComponent } from './containers/home/home.component';
-import { ProfileComponent } from './containers/profile/profile.component';
+import { AppMaterialModule } from './shared/material.module';
+import { HomeModule } from './containers/home/home.module';
+import { ProfileModule } from './containers/profile/profile.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule
+    AppMaterialModule,
+    HomeModule,
+    ProfileModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

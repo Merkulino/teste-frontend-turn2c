@@ -1,8 +1,11 @@
 <p>
   <mat-toolbar color="primary">
     <span>App component</span>
+    <button mat-raised-button color="white" aria-label="Pagina de perfil" (click)="changeRouteSource()">
+      <mat-icon>person</mat-icon>
+      <span>{{navButtonTxt}}</span>
+    </button>
   </mat-toolbar>
 </p>
 
-<app-home></app-home>
-<app-profile></app-profile>
+<router-outlet></router-outlet>
