@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dogs-grid',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./dogs-grid.component.css']
 })
 export class DogsGridComponent {
+
+  @Input() dogs: string[] = [];
+
+  getDogs() {
+    return this.dogs;
+  }
 
 }

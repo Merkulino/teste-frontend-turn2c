@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './shared/material.module';
 import { HomeModule } from './containers/home/home.module';
 import { ProfileModule } from './containers/profile/profile.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProfileModule } from './containers/profile/profile.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     AppMaterialModule,
     HomeModule,
     ProfileModule,
