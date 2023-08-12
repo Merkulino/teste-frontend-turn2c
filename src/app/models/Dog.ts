@@ -17,9 +17,18 @@ export interface Dog {
 }
 
 export interface DogResponse {
-  breeds: Dog;
+  breeds: Dog[];
   id: string;
   url: string;
   width: number;
   height: number;
+}
+
+export interface DogsBreed extends Dog{
+  image: {
+    id: string,
+    width: number,
+    height: number,
+    url: string,
+  }
 }

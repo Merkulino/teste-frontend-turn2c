@@ -1,6 +1,6 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Dog, DogResponse } from 'src/app/models/Dog';
+import { DogResponse } from 'src/app/models/Dog';
 
 @Component({
   selector: 'app-dogs-grid',

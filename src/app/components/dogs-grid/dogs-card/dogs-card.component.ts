@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { DogResponse } from 'src/app/models/Dog';
 
 type dogsInfo = {
   name: string,

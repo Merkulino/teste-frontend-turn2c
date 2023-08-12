@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
-import { Dog, DogResponse } from 'src/app/models/Dog';
+import { Observable, catchError } from 'rxjs';
+import { DogResponse } from 'src/app/models/Dog';
 import { DogsAPIService } from 'src/app/service/dogs-api.service';
 
 @Component({
@@ -12,15 +12,22 @@ export class HomeComponent {
 
   dogs$: Observable<DogResponse[]> | undefined;
 
-  constructor(private service: DogsAPIService) {     
+  constructor(private service: DogsAPIService) {
     this.dogs$ = service.getDogs().pipe(
       catchError(error => {
-        console.log('erro ao salvar cursos'+error);
+        console.log('erro ao salvar cursos' + error);
         alert('Erro ao salvar cursos!');
         return [];
       }));
 
-    console.log(this.dogs$);
+  }
+
+  ngOnInit() {
+    this.service.eventEmmiter.subscribe(breedSelected => {
+      if (typeof breedSelected == 'string') {
+        this.dogs$ = this.service.getDogsByHisBreed(breedSelected);
+      }
+    });
   }
 
 }

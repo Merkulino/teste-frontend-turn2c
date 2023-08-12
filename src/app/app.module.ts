@@ -9,6 +9,8 @@ import { AppMaterialModule } from './shared/material.module';
 import { HomeModule } from './containers/home/home.module';
 import { ProfileModule } from './containers/profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DogsAPIService } from './service/dogs-api.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     AppMaterialModule,
     HomeModule,
     ProfileModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DogsAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
