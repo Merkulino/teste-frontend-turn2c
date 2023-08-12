@@ -1,4 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Dog, DogResponse } from 'src/app/models/Dog';
 
 @Component({
   selector: 'app-dogs-grid',
@@ -7,10 +9,10 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class DogsGridComponent {
 
-  @Input() dogs: string[] = [];
+  @Input() dogs$: Observable<DogResponse[]> | undefined;
 
   getDogs() {
-    return this.dogs;
+    return this.dogs$;
   }
 
 }

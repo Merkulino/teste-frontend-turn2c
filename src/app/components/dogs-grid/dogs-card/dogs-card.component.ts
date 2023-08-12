@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DogResponse } from 'src/app/models/Dog';
+
+type dogsInfo = {
+  name: string,
+  url: string,
+  lifeSpan: string
+} 
 
 @Component({
   selector: 'app-dogs-card',
@@ -6,5 +13,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./dogs-card.component.css']
 })
 export class DogsCardComponent {
+
+  @Input() dogsInfo: dogsInfo | undefined;
 
 }

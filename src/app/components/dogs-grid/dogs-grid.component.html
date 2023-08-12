@@ -1,7 +1,18 @@
 <p>dogs-grid works!</p>
 
 <mat-grid-list cols="4" rowHeight="100%">
-  <div *ngFor="let dog of dogs">
-    <app-dogs-card></app-dogs-card>
+  
+  <div *ngIf="dogs$ | async; else loading">
+    <div *ngFor="let dog of dogs$ | async">
+      <app-dogs-card [dogsInfo]="{
+        name: dog.url,
+        url: dog.url,
+        lifeSpan: dog.breeds.life_span
+      }"></app-dogs-card>
+    </div>
   </div>
+
+  <ng-template class="loading" #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
 </mat-grid-list>

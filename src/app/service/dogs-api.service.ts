@@ -21,10 +21,10 @@ export class DogsAPIService {
     return { headers: headers };
   }
 
-  public getDogs(page: string = "0"): Observable<DogResponse> {
+  public getDogs(page: string = "0"): Observable<DogResponse[]> {
     return this.httpClient
-      .get<DogResponse>(
-        `${this.URL}/images/search?limit=8&page=${page}`,
+      .get<DogResponse[]>(
+        `${this.URL}/images/search?limit=8&has_breeds=2&page=${page}`,
         this.getHttpHeaders());
   }
 
