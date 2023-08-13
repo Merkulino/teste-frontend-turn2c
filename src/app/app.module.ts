@@ -11,10 +11,12 @@ import { ProfileModule } from './containers/profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DogsAPIService } from './service/dogs-api.service';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

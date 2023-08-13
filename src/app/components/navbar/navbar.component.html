@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <form *ngIf="homeComponent">
+    <mat-form-field>
+      <mat-label>Raças</mat-label>
+      <mat-select (valueChange)="onValueChange(breedValue)" #breedValue>
+        <mat-option *ngFor="let breed of dogsBreed$ | async" [value]="breed.id">
+          {{breed.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="white" aria-label="Pagina de perfil" (click)="changeRouteSource()">
+    <mat-icon>person</mat-icon>
+    <span>{{navButtonTxt}}</span>
+  </button>
+</mat-toolbar>
