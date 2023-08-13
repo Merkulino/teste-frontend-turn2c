@@ -54,7 +54,6 @@ export class DogsAPIService {
   }
 
   public uploadUserDog(formData: FormData) {
-    return this.httpClient.post(`${this.URL}/images/upload`, formData, this.getHttpHeaders())
-      .subscribe(res => console.log(res), err => console.log(err));;
+    return this.httpClient.post(`${this.URL}/images/upload`, formData, this.getHttpHeaders());
   }
 }
