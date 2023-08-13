@@ -17,7 +17,12 @@ export class ProfileComponent {
     this.userDogs$.subscribe(v => console.log(v[0].breeds));
   }
 
-  uploadPhoto() {
-    throw new Error('Method not implemented.');
+  uploadPhoto(input: HTMLInputElement) {
+    const formData = new FormData();
+    if (input.files !== null) {
+      formData.append('file', input.files[0]);
+      this.service.uploadUserDog(formData);
+    }
+    
   }
 }

@@ -1,8 +1,8 @@
 <div>
   <mat-card>
     <span>Adicionar um cachorro</span>
-    <input type="file" accept="image/*" name="" id="">
-    <button mat-flat-button color="primary" (click)="uploadPhoto()">Enviar foto</button>
+    <input type="file" accept="image/*" #inputFile>
+    <button mat-flat-button color="primary" (click)="uploadPhoto(inputFile)">Enviar foto</button>
   </mat-card>
 </div>
 <app-dogs-grid [dogs$]="userDogs$"></app-dogs-grid>

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { DogResponse, DogsBreed } from '../models/Dog';
+import { Dog, DogResponse, DogsBreed } from '../models/Dog';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +51,10 @@ export class DogsAPIService {
       .get<DogResponse[]>(
         `${this.URL}/images/?limit=10&page=${page}`,
         this.getHttpHeaders());
+  }
+
+  public uploadUserDog(formData: FormData) {
+    return this.httpClient.post(`${this.URL}/images/upload`, formData, this.getHttpHeaders())
+      .subscribe(res => console.log(res), err => console.log(err));;
   }
 }
