@@ -13,13 +13,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   dogs$: Observable<DogResponse[]> | undefined;
 
   constructor(private service: DogsAPIService) {
-    this.dogs$ = service.getDogs().pipe(
+    this.refresh()
+  }
+
+  refresh(page: string = '0') {
+    this.dogs$ = this.service.getDogs(page).pipe(
       catchError(error => {
         console.log('erro ao salvar cursos' + error);
         alert('Erro ao salvar cursos!');
         return [];
       }));
-
   }
 
   ngOnInit(): void {
@@ -28,6 +31,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.dogs$ = this.service.getDogsByHisBreed(breedSelected);
       }
     });
+  }
+
+  onPageChange($event: any) {
+    // console.log(this.service.eventEmmiter.subscribe(v => console.log(v)));
+    this.refresh($event);
   }
 
   ngOnDestroy(): void {

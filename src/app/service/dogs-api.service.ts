@@ -30,7 +30,6 @@ export class DogsAPIService {
         this.getHttpHeaders());
   }
 
-
   public getDogsBreeds(): Observable<DogsBreed[]> {
     const response = this.httpClient
       .get<DogsBreed[]>(
@@ -42,7 +41,7 @@ export class DogsAPIService {
   public getDogsByHisBreed(breedId: string, page: string = "0"): Observable<DogResponse[]> {
     return this.httpClient
       .get<DogResponse[]>(
-        `${this.URL}/images/search?limit=3&breed_ids=${breedId}&page=${page}`,
+        `${this.URL}/images/search?limit=8&breed_ids=${breedId}&page=${page}`,
         this.getHttpHeaders());
   }
 

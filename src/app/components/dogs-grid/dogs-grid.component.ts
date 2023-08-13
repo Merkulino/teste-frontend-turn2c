@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Observable, OperatorFunction } from 'rxjs';
 import { DogResponse } from 'src/app/models/Dog';
 
@@ -10,9 +11,10 @@ import { DogResponse } from 'src/app/models/Dog';
 export class DogsGridComponent {
 
   @Input() dogs$: Observable<DogResponse[]> | undefined;
+  @Output() pageEventChange: EventEmitter<string> = new EventEmitter();
+  pageIndex = 0;
 
-  getDogs() {
-    return this.dogs$;
+  onPageChange(event: PageEvent) {
+    this.pageEventChange.emit(event.pageIndex.toString());
   }
-
 }

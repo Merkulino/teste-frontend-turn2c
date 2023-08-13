@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   exports: [
@@ -16,7 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatGridListModule,
     MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ]
 })
 export class AppMaterialModule { }
