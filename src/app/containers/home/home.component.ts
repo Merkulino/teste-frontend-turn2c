@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { DogResponse } from 'src/app/models/Dog';
 import { DogsAPIService } from 'src/app/service/dogs-api.service';
@@ -8,7 +8,7 @@ import { DogsAPIService } from 'src/app/service/dogs-api.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
 
   dogs$: Observable<DogResponse[]> | undefined;
 
@@ -22,12 +22,16 @@ export class HomeComponent {
 
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.service.eventEmmiter.subscribe(breedSelected => {
       if (typeof breedSelected == 'string') {
         this.dogs$ = this.service.getDogsByHisBreed(breedSelected);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.service.eventEmmiter.unsubscribe();
   }
 
 }

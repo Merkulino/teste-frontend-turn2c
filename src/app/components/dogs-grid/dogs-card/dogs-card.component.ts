@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 type dogsInfo = {
-  name: string,
+  name: string | null,
   url: string,
-  lifeSpan: string
+  lifeSpan: string | null
 } 
 
 @Component({

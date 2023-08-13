@@ -8,10 +8,10 @@ export interface Dog {
     metric: string,
   },
   id: number,
-  name: string,
+  name: string | null,
   bred_for: string,
   breed_group: string,
-  life_span: string,
+  life_span: string | null,
   temperament: string,
   reference_image_id: string,
 }
@@ -24,7 +24,7 @@ export interface DogResponse {
   height: number;
 }
 
-export interface DogsBreed extends Dog{
+export interface DogsBreed extends Dog {
   image: {
     id: string,
     width: number,

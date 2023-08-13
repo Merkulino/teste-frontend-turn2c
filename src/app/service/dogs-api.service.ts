@@ -46,9 +46,9 @@ export class DogsAPIService {
         this.getHttpHeaders());
   }
 
-  public getDogsFromUser(page: string = "0"): Observable<DogResponse> {
+  public getDogsFromUser(page: string = "0"): Observable<DogResponse[]> {
     return this.httpClient
-      .get<DogResponse>(
+      .get<DogResponse[]>(
         `${this.URL}/images/?limit=10&page=${page}`,
         this.getHttpHeaders());
   }

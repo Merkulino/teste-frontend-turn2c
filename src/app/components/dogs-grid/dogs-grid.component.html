@@ -1,12 +1,24 @@
 <mat-grid-list cols="4" rowHeight="100%">
   
-  <div *ngIf="dogs$ | async; else loading">
+  <div *ngIf="(dogs$| async)?.length === 0">
+    <span>Não tem dogs cadastrado</span>
+  </div>
+  <div *ngIf="dogs$| async; else loading">
     <div *ngFor="let dog of dogs$ | async">
-      <app-dogs-card [dogsInfo]="{
-        name: dog.breeds[0].name,
-        url: dog.url,
-        lifeSpan: dog.breeds[0].life_span
-      }"></app-dogs-card>
+      <div *ngIf="dog.breeds.length">
+        <app-dogs-card [dogsInfo]="{
+          name: dog.breeds[0].name || '',
+          url: dog.url,
+          lifeSpan: dog.breeds[0].life_span || ''
+        }"></app-dogs-card>
+      </div>
+      <div *ngIf="dog.breeds.length === 0">
+        <app-dogs-card [dogsInfo]="{
+          name: '',
+          url: dog.url,
+          lifeSpan: ''
+        }"></app-dogs-card>
+      </div>
     </div>
   </div>
 
