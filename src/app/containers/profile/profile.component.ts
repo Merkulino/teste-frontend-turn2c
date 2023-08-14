@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DogResponse } from 'src/app/models/Dog';
 import { DogsAPIService } from 'src/app/service/dogs-api.service';
@@ -18,7 +18,6 @@ export class ProfileComponent {
 
   renderDogs() {
     this.userDogs$ = this.service.getDogsFromUser();
-    this.userDogs$.subscribe(v => console.log(v[0].breeds));
   }
 
   uploadPhoto(input: HTMLInputElement) {

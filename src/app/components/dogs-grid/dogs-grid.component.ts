@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Observable, OperatorFunction } from 'rxjs';
+import { Observable } from 'rxjs';
 import { DogResponse } from 'src/app/models/Dog';
 
 @Component({

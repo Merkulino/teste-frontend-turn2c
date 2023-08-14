@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onPageChange($event: any) {
-    // console.log(this.service.eventEmmiter.subscribe(v => console.log(v)));
     this.refresh($event);
   }
 

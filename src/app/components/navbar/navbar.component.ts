@@ -26,9 +26,7 @@ export class NavbarComponent {
     this.dogsBreed$ = this.service.getDogsBreeds();
   }
   
-  ngOnInit(): void {
-    console.log(this.route.url);
-  }
+  ngOnInit(): void {}
 
   onValueChange(select: MatSelect) {
     this.breedSelected = select.value;
