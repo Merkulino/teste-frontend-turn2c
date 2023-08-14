@@ -1,0 +1,8 @@
+mat-toolbar {
+  justify-content: space-between;
+  align-content: center;
+}
+
+form {
+  height: 55px;
+}
