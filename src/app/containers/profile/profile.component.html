@@ -6,5 +6,9 @@
       <button mat-flat-button color="primary" (click)="uploadPhoto(inputFile)">Enviar foto</button>
     </mat-card>
   </div>
-  <app-dogs-grid [dogs$]="userDogs$" class="dog-grid-component"></app-dogs-grid>
+  <app-dogs-grid 
+    class="dog-grid-component" 
+    [dogs$]="userDogs$" 
+    [renderPaginator]="false"
+  ></app-dogs-grid>
 </div>

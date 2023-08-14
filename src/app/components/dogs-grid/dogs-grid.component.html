@@ -24,6 +24,7 @@
   
   </div>
   <mat-paginator
+      *ngIf="renderPaginator"
       class="paginator"
       [length]="40"
       [pageSize]="8"

@@ -13,6 +13,7 @@ export class DogsGridComponent {
   @Input() dogs$: Observable<DogResponse[]> | undefined;
   @Output() pageEventChange: EventEmitter<string> = new EventEmitter();
   pageIndex = 0;
+  @Input() renderPaginator: boolean = true;
 
   onPageChange(event: PageEvent) {
     this.pageEventChange.emit(event.pageIndex.toString());

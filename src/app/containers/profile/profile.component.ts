@@ -22,13 +22,15 @@ export class ProfileComponent {
 
   uploadPhoto(input: HTMLInputElement) {
     const formData = new FormData();
-    if (input.files !== null) {
+    if (input.files !== null && input.value) {
       formData.append('file', input.files[0]);
       this.service.uploadUserDog(formData)
         .subscribe(res => {
           console.log(res);
           this.renderDogs();
         }, err => console.log(err));;
+    } else {
+      alert('Insira uma imagem valida');
     }
   }
 }
