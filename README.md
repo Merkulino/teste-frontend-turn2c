@@ -1,6 +1,6 @@
 # TesteFrontendTurn2c
 
-Esse projeto foi de um teste tecnico de um processo seletivo front end web utilizando Angular
+Esse projeto foi um teste tecnico de um processo seletivo front end web utilizando Angular
 
 ### Como rodar 🚀
 
