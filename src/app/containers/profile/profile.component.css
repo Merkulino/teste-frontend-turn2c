@@ -1,0 +1,21 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+}
+.profile-input-container {
+  align-self: center;
+  height: 100%;
+  text-align: center;
+}
+
+mat-card {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  height: 100vh;
+}
+
+.dog-grid-component{
+
+
+}
