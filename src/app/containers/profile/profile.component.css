@@ -3,14 +3,55 @@
   flex-direction: row;
 }
 .profile-input-container {
-  align-self: center;
   height: 100%;
   text-align: center;
 }
 
 mat-card {
   display: flex;
-  justify-content: center;
   gap: 50px;
   height: 100vh;
+  width: 250px;
+  padding: 70px 10px 0;  
+  align-items: center;
+}
+
+span {
+  color: aliceblue;
+}
+
+input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input {
+  border: none;
+  width: 150px;
+  height: 150px;
+  background-image: url('https://creazilla-store.fra1.digitaloceanspaces.com/icons/3233252/camera-icon-md.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+input[type='file']::before {
+  content: 'Selecionar uma imagem';
+  font-size: small;
+  color: aliceblue;
+}
+
+input[type='file']::after {
+  content: 'Imagem selecionada';
+}
+
+@media (max-width: 520px) {
+  .profile-container {
+    flex-direction: column;
+  }
+  mat-card {
+    height: fit-content;
+    width: 100%;
+    padding: 30px 10px;
+  }
 }
