@@ -6,23 +6,16 @@
       <span>Não tem dogs cadastrado</span>
     </div>
   
-    <div class="dog-col" *ngIf="dogs$| async; else loading">
-      <div *ngFor="let dog of dogs$ | async">
-        <div *ngIf="dog.breeds.length">
-          <app-dogs-card [dogsInfo]="{
-            name: dog.breeds[0].name || '',
+    <div class="dog-col" *ngIf="dogs$ | async; else loading">
+      <ng-container *ngFor="let dog of dogs$ | async">
+        <app-dogs-card
+          [dogsInfo]="{
+            name: dog.breeds[0]?.name || '',
             url: dog.url,
-            lifeSpan: dog.breeds[0].life_span || ''
-          }"></app-dogs-card>
-        </div>
-        <div *ngIf="dog.breeds.length === 0">
-          <app-dogs-card [dogsInfo]="{
-            name: '',
-            url: dog.url,
-            lifeSpan: ''
-          }"></app-dogs-card>
-        </div>
-      </div>
+            lifeSpan: dog.breeds[0]?.life_span || ''
+          }"
+        ></app-dogs-card>
+      </ng-container>
     </div>
   
     <ng-template class="loading" #loading>

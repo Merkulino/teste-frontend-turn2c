@@ -33,7 +33,7 @@ export class DogsAPIService {
   public getDogsBreeds(): Observable<DogsBreed[]> {
     const response = this.httpClient
       .get<DogsBreed[]>(
-        'https://api.thedogapi.com/v1/breeds?limit=10',
+        'https://api.thedogapi.com/v1/breeds',
         this.getHttpHeaders())
     return response;
   }
