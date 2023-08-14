@@ -19,12 +19,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   refresh(page: string = '0') {
     this.dogs$ = this.service.getDogs(page).pipe(
       catchError(error => {
-        console.log('erro ao salvar cursos' + error);
-        alert('Erro ao salvar cursos!');
+        console.log('erro ao recuperar dogs' + error);
+        alert('Erro ao recuperar cachorros!');
         return [];
       }));
   }
-
+  
   ngOnInit(): void {
     this.service.eventEmmiter.subscribe(breedSelected => {
       if (typeof breedSelected == 'string') {
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.service.eventEmmiter.unsubscribe();
+    // this.service.eventEmmiter.unsubscribe();
   }
 
 }

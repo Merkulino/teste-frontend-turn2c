@@ -1,8 +1,8 @@
 
 <div *ngIf="dogsInfo?.url; else loading">
   <mat-card class="dogs-card">
-    <img mat-card-lg-image src={{dogsInfo?.url}} alt='Foto de cachorro'>
-    <mat-card-footer>
+    <img mat-card-image class="dogs-card-img" src={{dogsInfo?.url}} alt='Foto de cachorro'>
+    <mat-card-footer class="footer-titles">
       <mat-card-title>{{dogsInfo?.name}}</mat-card-title>
       <mat-card-subtitle>{{dogsInfo?.lifeSpan}}</mat-card-subtitle>
     </mat-card-footer>

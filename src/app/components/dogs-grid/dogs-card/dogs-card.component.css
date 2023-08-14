@@ -1,0 +1,23 @@
+.dogs-card {
+  width: 200px;
+  height: 260px;
+  justify-content: space-between;
+}
+
+.dogs-card-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  background-size: contain;
+}
+
+mat-card-title {
+  font-size: medium;
+}
+
+.footer-titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5px;
+}

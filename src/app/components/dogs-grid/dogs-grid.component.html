@@ -1,35 +1,41 @@
-<mat-grid-list cols="4" rowHeight="100%">
 
-  <div *ngIf="(dogs$| async)?.length === 0">
-    <span>Não tem dogs cadastrado</span>
-  </div>
-  <mat-paginator 
-    [length]="40" 
-    [pageSize]="8" 
-    [pageIndex]="pageIndex"
-    (page)="onPageChange($event)"
-    aria-label="Selecione a pagina">
-  </mat-paginator>
-  <div *ngIf="dogs$| async; else loading">
-    <div *ngFor="let dog of dogs$ | async">
-      <div *ngIf="dog.breeds.length">
-        <app-dogs-card [dogsInfo]="{
-          name: dog.breeds[0].name || '',
-          url: dog.url,
-          lifeSpan: dog.breeds[0].life_span || ''
-        }"></app-dogs-card>
-      </div>
-      <div *ngIf="dog.breeds.length === 0">
-        <app-dogs-card [dogsInfo]="{
-          name: '',
-          url: dog.url,
-          lifeSpan: ''
-        }"></app-dogs-card>
+<div class="dogs-grid-container">
+  <div class="dogs-grid">
+  
+    <div *ngIf="(dogs$| async)?.length === 0">
+      <span>Não tem dogs cadastrado</span>
+    </div>
+  
+    <div class="dog-col" *ngIf="dogs$| async; else loading">
+      <div *ngFor="let dog of dogs$ | async">
+        <div *ngIf="dog.breeds.length">
+          <app-dogs-card [dogsInfo]="{
+            name: dog.breeds[0].name || '',
+            url: dog.url,
+            lifeSpan: dog.breeds[0].life_span || ''
+          }"></app-dogs-card>
+        </div>
+        <div *ngIf="dog.breeds.length === 0">
+          <app-dogs-card [dogsInfo]="{
+            name: '',
+            url: dog.url,
+            lifeSpan: ''
+          }"></app-dogs-card>
+        </div>
       </div>
     </div>
+  
+    <ng-template class="loading" #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  
   </div>
-
-  <ng-template class="loading" #loading>
-    <mat-spinner></mat-spinner>
-  </ng-template>
-</mat-grid-list>
+  <mat-paginator
+      class="paginator"
+      [length]="40"
+      [pageSize]="8"
+      [pageIndex]="pageIndex"
+      (page)="onPageChange($event)"
+      aria-label="Selecione a pagina">
+  </mat-paginator>
+</div>

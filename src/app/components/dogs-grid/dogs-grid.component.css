@@ -1,0 +1,27 @@
+.dogs-grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dogs-grid {
+  display: flex;
+  width: 900px;
+  justify-content: center;
+  margin: 15px auto 60px;
+}
+.dog-col {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  gap: 5px;
+}
+
+.paginator {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+}
