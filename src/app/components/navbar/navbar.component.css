@@ -4,5 +4,10 @@ mat-toolbar {
 }
 
 form {
-  height: 55px;
+  max-height: 55px;
+}
+
+mat-form-field {
+  max-width: 20vw;
+  min-width: 100px;
 }
